@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+/* Carousel Item Styling */
+/* Default Navbar Styling */
+.navbar {
+    background-color: transparent !important; /* Fully transparent */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    backdrop-filter: blur(0); /* Remove blur for a fully clear background */
+    box-shadow: none; /* Remove shadow initially */
+  }
+  
+  .navbar.scrolled {
+    background-color: rgb(247, 245, 245) !important; /* Solid background when scrolled */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    color: black;
+  }
+  .navbar.scrolled .nav-link {
+    color: black !important; /* Change to black when scrolled */
+  }
+  
+  .nav-link {
+    color: white !important; /* Ensures the links are visible on the transparent background */
+  }
+  
+  .nav-link:hover {
+    color: #f8f9fa !important; /* Highlight link on hover */
+  }
+  
+  .logo {
+    border-radius: 5px; /* Optional: Adds slight rounding to the logo */
+  }
+  
+  .navbar-nav {
+    margin: auto;
+  }
+  
+  .nav-item {
+    margin-left: 50px;
+    font-family: courier, monospace;
+    font-weight: bolder;
+    font-size: 0.5cm;
+  }
+.container-div{
+     background: rgb(239, 238, 244);
+     width: auto;
+     height: 150px;
+     padding: 50px;
+     margin-top:10px;
+}
+/* .nav{
+    background: rgb(239, 238, 244);
+    padding: 60px;
+} */
+.nav-tabs .nav-link {
+    color: black !important;
+  }
+  .home-card{
+    padding: 70px;
+  }
+  .home-count{
+    font-size: 2cm;
+    text-align: center;
+    font-weight: bolder;
+  }
+/* ----------------- Profile ------------------------- */
+
+  .section_profile {
+    padding: 30px 0px 0px 100px;
+    position: relative;
+}
+.gray-bg {
+    background-color: #f5f5f5;
+}
+img {
+    max-width: 100%;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+/* About Me 
+---------------------*/
+.about-text h3 {
+  font-size: 45px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+@media (max-width: 767px) {
+  .about-text h3 {
+    font-size: 35px;
+  }
+}
+.about-text h6 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+  .about-text h6 {
+    font-size: 18px;
+  }
+}
+.about-text p {
+  font-size: 18px;
+  max-width: 450px;
+}
+.about-text p mark {
+  font-weight: 600;
+  color: #20247b;
+}
+
+.about-list {
+  padding-top: 10px;
+}
+.about-list .media {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically align content */
+    justify-content: space-between; /* Distribute items with space between them */
+    padding: 5px 0; /* Maintain padding */
+  }
+  .about-list label {
+    color: #20247b;
+    font-weight: 600;
+    width: auto; /* Adjust width to fit content dynamically */
+    margin: 0;
+    margin-right: 10px; /* Add spacing between label and value */
+    position: relative;
+  }
+.about-list label:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 11px;
+  width: 1px;
+  height: 12px;
+  background: #20247b;
+  -moz-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  margin: auto;
+  opacity: 0.5;
+}
+.about-list p {
+    margin: 0;
+    font-size: 15px;
+    flex-shrink: 0; /* Prevent shrinking of the text value */
+    text-align: start;
+    color: #888888 !important;
+  }
+
+@media (max-width: 991px) {
+  .about-avatar {
+    margin-top: 30px;
+  }
+}
+
+.about-section .counter {
+  padding: 22px 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+}
+.about-section .counter .count-data {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.about-section .counter .count {
+  font-weight: 700;
+  color: #20247b;
+  margin: 0 0 5px;
+}
+.about-section .counter p {
+  font-weight: 600;
+  margin: 0;
+}
+mark {
+    background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
+    background-size: 100% 3px;
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+    background-color: transparent;
+    padding: 0;
+    color: currentColor;
+}
+.theme-color {
+    color: #fc5356;
+}
+.dark-color {
+    color: #20247b;
+}
+    
+.breadcrumb-link{
+    text-decoration: none;
+}
+
+/*----------------- My post ------------------------*/
+.post{
+    padding: 100px 0;
+}
+.bg-image {
+    position: relative; /* Ensure the parent container is a positioned element */
+    width: 350px;
+    height: 200px; /* Match the image height */
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+.blog_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.blog_content {
+    position: absolute; /* Absolute positioning relative to .bg-image */
+    bottom: 10px; /* Align at the bottom */
+    left: 0; /* Align at the left */
+    background-color: white; /* Optional: Semi-transparent background */
+    width: auto; /* Adjust as needed */
+    margin: 5px -10px -10px 0px;
+}
+
+.p-2.m-0 {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Optional: Fine-tune padding */
+}
+/* .add_post{
+    margin: 20px 0;
+} */
+.post_row{
+    background: rgb(239, 238, 244);
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+}
+.float-right {
+    margin-left: auto;
+  }
+
+.form-container{
+    padding: 50px;
+    border: 1px solid lightgrey;
+}
+
+.label_name{
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    color: gray ;
+}
+.form-group{
+    padding-top: 15px;
+}
+.post_submit{
+    margin-top: 30px;
+}
+.edit_image{
+    width:25px;
+}

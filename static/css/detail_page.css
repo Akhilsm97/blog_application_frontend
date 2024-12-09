@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+/* Carousel Item Styling */
+/* Default Navbar Styling */
+.navbar {
+    background-color: transparent !important; /* Fully transparent */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    backdrop-filter: blur(0); /* Remove blur for a fully clear background */
+    box-shadow: none; /* Remove shadow initially */
+  }
+  
+  .navbar.scrolled {
+    background-color: rgb(247, 245, 245) !important; /* Solid background when scrolled */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    color: black;
+  }
+  .navbar.scrolled .nav-link {
+    color: black !important; /* Change to black when scrolled */
+  }
+  
+  .nav-link {
+    color: white !important; /* Ensures the links are visible on the transparent background */
+  }
+  
+  .nav-link:hover {
+    color: #f8f9fa !important; /* Highlight link on hover */
+  }
+  
+  .logo {
+    border-radius: 5px; /* Optional: Adds slight rounding to the logo */
+  }
+  
+  .navbar-nav {
+    margin: auto;
+  }
+  
+  .nav-item {
+    margin-left: 50px;
+    font-family: courier, monospace;
+    font-weight: bolder;
+    font-size: 0.5cm;
+  }
+
+/* Full-Width Banner */
+#banner {
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+    width: 100%; /* Ensure the section spans the full width */
+    overflow: hidden; /* Prevent overflow issues */
+  }
+  
+  .banner_image {
+    width: 100%; /* Full container width */
+    height: 520px; /* Fixed height in pixels */
+    object-fit: cover; /* Prevent distortion */
+  }
+
+  .blog_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog_content {
+    position: absolute; /* Absolute positioning relative to .bg-image */
+    bottom: 100px; /* Align at the bottom */
+    left: 123px; /* Align at the left */
+    background-color: white; /* Optional: Semi-transparent background */
+    width: 46%; /* Adjust as needed */
+    height: auto;
+    margin: 5px -10px -10px 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.p-2.m-0 {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Optional: Fine-tune padding */
+}
+.tagline {
+    border: 1px solid lightgrey; /* Black border with 2px thickness */
+    padding: 10px; /* Space inside the border */
+    display: inline-block; /* Makes the element wrap tightly around its content */
+    border-radius: 20px; /* Ensures the border is a perfect rectangle (no rounding) */
+    font-family: Arial, sans-serif; /* Optional: Set font style */
+    font-size: 16px; /* Adjust font size */
+    background: rgb(239, 238, 244);
+    width: auto;
+    margin-left: 50px;
+  }
+  .content{
+    margin-left: 20px;
+  }
+
+  .container_details{
+    padding: 120px 50px 50px 50px;
+  }
+  .para_1{
+    line-height: 40px;
+    padding-bottom: 20px;
+  }
+
+  .recent_post{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 20px 20px 20px 20px;
+    width:80%;
+    margin-top:50px
+  }
+  .header{
+    background: rgb(239, 238, 244);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 3px 3px 20px;
+    text-align: center;
+  
+    
+  }
+  .inner_row{
+    padding: 10px;
+  }
+  .recent_images{
+    width: 65px;
+    height: 65px;
+    border-radius: 10px;
+
+  }
+  .recent_post_content{
+    display: -webkit-box; /* Required for WebKit browsers */
+  -webkit-box-orient: vertical; /* Vertical box layout */
+  overflow: hidden; /* Prevents content overflow */
+  text-overflow: ellipsis; /* Adds the "..." */
+  line-clamp: 2; /* Limits text to 2 lines (adjust as needed) */
+  -webkit-line-clamp: 2; /* Same as above, for WebKit browsers */
+  text-align: left;
+  font-weight:600
+  }
+
+  /*-------------------Comment Section ----------------------*/
+
+  .comment_section{
+    padding: 10px;
+    margin-left: 100px;
+    width:85% ;
+  }
+  .comment_details{
+    border: 1px solid lightgrey;
+    padding: 50px 50px 50px 50px;
+  }
+  .profile{
+    padding-top: 60px;
+  }
+  .profile_img{
+    width: 50px;
+    height: 50px;
+    
+  }
+  .time_date{
+    font-weight: 600;
+  }
+  .comment_here{
+    background: rgb(239, 238, 244);
+    padding: 10px;
+    border-radius: 12px;
+  }
+  .write_comment{
+    width:84%;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 20px 20px 20px 20px;
+  }
+  .write_comment{
+    padding: 20px 20px 20px 20px;
+
+  }
+
+  .form-group{
+    padding-top: 15px;
+    color: black;
+  }
+
+  .send_button{
+    width:95%;
+    margin: 20px 20px 20px 10px;
+  }

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Blog App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://use.typekit.net/bva4nhi.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'js/scroll.js' %}"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <style>
+      body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+/* Carousel Item Styling */
+.logo{
+  width:100px;
+  height: 80px;
+}
+.car_items {
+    height: 600px;
+    
+    position: relative;
+    overflow: hidden;
+}
+.carousel_image{
+    height: 400px;
+}
+
+/* Full Image Overlay */
+.car_items .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 30, 0.5); /* Light blue with 50% transparency */
+    z-index: 0.5; /* Places overlay above the image */
+}
+
+/* Zoom In Effect */
+.car_items img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomInEffect 10s ease-in-out infinite;
+}
+
+@keyframes zoomInEffect {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Text Styling */
+.car_caption {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Places text above the overlay */
+    color: black; /* Dark text for contrast */
+    text-align: center;
+}
+
+.carousel-caption h1 {
+    font-size: 2cm;
+    font-weight: bolder;
+    color: white;
+    text-align: left;
+
+}
+
+.carousel-caption p {
+    font-size: 1.25rem;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    margin-top: 25px;
+}
+
+/* Default Navbar Styling */
+.navbar {
+    background-color: transparent !important; /* Fully transparent */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    backdrop-filter: blur(0); /* Remove blur for a fully clear background */
+    box-shadow: none; /* Remove shadow initially */
+  }
+  
+  .navbar.scrolled {
+    background-color: rgb(247, 245, 245) !important; /* Solid background when scrolled */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    color: black;
+  }
+  .navbar.scrolled .nav-link {
+    color: black !important; /* Change to black when scrolled */
+  }
+  
+  .nav-link {
+    color: white !important; /* Ensures the links are visible on the transparent background */
+    font-weight: 600;
+    font-size: 14px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+  }
+
+  .sign_out{
+    background: rgb(119, 179, 243);
+    text-transform: capitalize;
+  }
+  .sign_in{
+    background: grey;
+  }
+  
+  .nav-link:hover {
+    color: black !important; /* Highlight link on hover */
+  }
+  
+  .logo {
+    border-radius: 5px; /* Optional: Adds slight rounding to the logo */
+  }
+  
+  .navbar-nav {
+    margin: auto;
+  }
+  
+  .nav-item {
+    margin-left: 50px;
+    font-family: courier, monospace;
+    font-weight: bolder;
+    font-size: 0.5cm;
+  }
+  
+  .dropdown-item{
+    font-weight: 600;
+  }
+.button-container {
+    text-align: left; /* Align button to the left within the container */
+}
+
+.btn-light {
+    border-radius: 50px;
+    background: none;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.btn-light:hover {
+    background-color: white; /* Set background color on hover */
+    color: rgb(10, 10, 121); /* Set text color on hover */
+}
+
+.btn-dark {
+    border-radius: 50px;
+    background: rgb(42, 42, 166);
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: white;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.btn-dark:hover {
+    background-color: white; /* Set background color on hover */
+    color: rgb(33, 33, 149); /* Set text color on hover */
+}
+
+.highlights{
+    background: rgb(240, 239, 239);
+}
+
+
+/*  Highlight Section */
+.highlights h2{
+    font-family: "texturina", sans-serif;
+    font-weight: bolder;
+    font-style: normal;
+}
+
+.highlight_images{
+    width: 100px;
+    background:rgb(24, 24, 77);  
+    border-radius: 50%;
+    padding: 10px;
+}
+.highlight_title{
+    color:rgb(24, 24, 77);  
+    font-size: 24px;
+    font-family: "texturina", sans-serif;
+    font-weight: bolder;
+    text-align: left;
+}
+.highlight_content{
+    color: lightgray;
+    text-align: left;
+
+}
+
+
+.inner_col{
+    text-align: center;
+}
+.outer_col{
+    padding: 20px;
+}
+
+
+/*---------------------Blog details ------------------------*/
+
+.blog{
+    margin: 50px 50px 50px 100px; 
+    border: none;
+    
+}
+.blog_col {
+    position: relative;
+
+}
+/* Popular Blog */
+.bg-images {
+  position: relative;
+  width: 100%;
+  height: 10%; /* Adjust height as per requirement */
+  overflow: hidden;
+}
+.blog_images {
+  width: 80%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.blog_contents {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 50%;
+  height: 35%;
+  background: white; /* Semi-transparent black background */
+  color: black; /* White text for better visibility */
+  padding: 0rem; 
+}
+
+/* main Blog */
+
+.bg-image {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Adjust height as per requirement */
+  overflow: hidden;
+}
+
+.blog_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.blog_content {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 50%;
+  height: 15%;
+  background: white; /* Semi-transparent black background */
+  color: black; /* White text for better visibility */
+  padding: 1rem; /* Add some padding */
+}
+
+.blog_content .container {
+  max-width: 100%;
+}
+
+
+
+
+
+/* Remove hover effect, so overlay remains visible */
+
+.description {
+    margin-top: 20px;  /* Adds space between the image and the description */
+    padding: 5px 10px 10px 0px;
+}
+.description_heading{
+    margin-top: 5px;
+    font-size: 28px;
+}
+.taglines{
+ margin-top: 20px;
+ font-family: "texturina", sans-serif;
+}
+
+.description_details{
+    margin-top: 25px;
+    font-family: "texturina", sans-serif;
+    line-height: 0.9cm;
+
+}
+.read_more{
+    color: orange;
+    background: black;
+    font-size: 14px;
+    margin-bottom: 20px;
+    
+
+}
+.read_more:hover{
+    color: black;
+    background: orange;
+
+}
+
+.popular_post{
+    background: rgb(239, 238, 244);
+    width: 80%;
+    padding: 50px;
+    
+}
+.popluar_blog_image{
+    width: 80%;
+    height: 20%;
+ 
+}
+.popular_link{
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+    
+    
+}
+.popular_row{
+    font-size: 14px;
+}
+.newsletter{
+    background: rgb(239, 238, 244);
+    width: 80%;
+    padding: 50px;
+
+}
+.suscribe_button{
+    color: orange;
+    background: black;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 0%;
+
+}
+.suscribe_button:hover{
+    color: black;
+    background: orange;
+    border: none;
+
+}
+.navbar-brand{
+  font-size: 25px;
+  font-weight: bolder;
+}
+ </style>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar" data-aos="fade-up" data-aos-delay="100" data-aos-duration="3000">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <img src="{% static 'images/sun.png' %}" alt="Logo" width="150" height="80" class="d-inline-block align-middle">
+              BACKPACK STORIES
+              <p  style="font-size: 15px; margin-top: -30px; margin-left:252px;"><em>The Indian Saga..!</em></p>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" style="text-transform: capitalize;" href="#home">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" style="text-transform: capitalize;" href="#about">ABOUT</a>
+                  </li>
+                  {% if username %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="#services">Welcome {{username}} !</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img src="{{user_data.profile_picture}}" class="img-thumbnail rounded-5" style="width: 45px; height: 45px;">
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'blog_app:dashboard' user_data.id %}"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="{% url 'blog_app:user_logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                      </ul>
+                  </li>
+                  {% else %}
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-primary sign_in" href="{% url 'blog_app:user_logins' %}">SIGN IN</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-secondary sign_out" href="{% url 'blog_app:create_user' %}">SIGN UP</a>
+                  </li>
+                  {% endif %}
+              </ul>
+          </div>
+      </div>
+  </nav>
+  
+ 
+  
+  
+
+    <!-- Carousel -->
+    <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="100" data-aos-duration="3000">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active car_items">
+                <img src="{% static 'images/blog_ala.jpg ' %}" alt="Slide 1" class="carousel_image">
+                <div class="overlay"></div> <!-- Full Image Overlay -->
+                <div class="carousel-caption car_caption">
+                    <h1 data-aos="fade-right" data-aos-delay="200">BACKPACK STORIES</h1>
+                    <p data-aos="fade-right" data-aos-delay="500">Your guide to exploring the world’s hidden treasures, embracing new cultures, and making unforgettable memories—one journey at a time.</p>
+                    <div class="button-container">
+                        <a class="btn btn-dark p-3" href="#footer">Contact Us</a>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item car_items" >
+                <img src="{% static 'images/Ladakh.jpg' %}" alt="Slide 2">
+                <div class="overlay"></div> <!-- Full Image Overlay -->
+                <div class="carousel-caption car_caption">
+                    <h1  data-aos="fade-right" data-aos-delay="200">Roads Less Traveled, Memories More Treasured.</h1>
+                    <p data-aos="fade-right" data-aos-delay="500"> Embark on unique adventures off the beaten path, discovering hidden gems and creating unforgettable stories that last a lifetime.</p>
+                    
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item car_items" >
+                <img src="{% static 'images/raj.jpg' %}" alt="Slide 3">
+                <div class="overlay"></div> <!-- Full Image Overlay -->
+                <div class="carousel-caption car_caption" >
+                    <h1 data-aos="fade-right" data-aos-delay="200">Wander, Wonder, Repeat.</h1>
+                    <p data-aos="fade-right" data-aos-delay="500">Journey through breathtaking destinations, uncover hidden stories, and embrace the joy of endless exploration.</p>
+                    <div class="button-container">
+                        <button class="btn btn-light p-3">Join Now</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!------------------------------------------------ Blogs ----------------------------------------------------------->
+      <section id="blog_details" data-aos="fade-up" data-aos-delay="100" data-aos-duration="3000">
+        <div class="container blog">
+          <div class="row">
+            
+                <!-- First Blog Post -->
+                <div class="col-md-7">
+                  {% for post in posted.object_list %}
+                  <div class="bg-image position-relative">
+                      <img src="{{ post.blog_image }}" class="blog_image" />
+                      <div class="blog_content position-absolute">
+                          <div class="container">
+                              <div class="row d-flex align-items-center justify-content-between">
+                                  <!-- Column 1 -->
+                                  <div class="col-auto">
+                                      <p class="p-2"><i class="fa fa-user" aria-hidden="true"></i> {{ post.author_name }}</p>
+                                  </div>
+                                  <!-- Column 2 -->
+                                  <div class="col-auto">
+                                      <p class="p-2"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{ post.updated_by }}</p>
+                                  </div>
+                                  <!-- Column 3 -->
+                                  <div class="col-auto">
+                                      {% for comment in comment_all %}
+                                          {% if post.id == comment.post_id %}
+                                              <p class="p-2"><i class="fa fa-smile-o" aria-hidden="true"></i> {{ comment.comment_count }} Comments</p>
+                                          {% endif %}
+                                      {% endfor %}
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="description mt-3">
+                      <h2 class="description_heading">{{ post.post_name }}</h2>
+                      <p class="taglines text-muted">{{ post.category }}</p>
+                      <p class="description_details text-muted">{{ post.blog_preview }}</p>
+                      <a href="{% url 'blog_app:post_fetch' post.id %}" class="btn btn-dark read_more">Read More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                  </div>
+                  
+                  {% endfor %}
+              
+                  <div class="mx-auto" style="margin-bottom:38px;">
+                      {% if posted.paginator.num_pages > 1 %}
+                      <div class="text-center">
+                          {% for pg in posted.paginator.page_range %}
+                              <a href="?page={{ pg }}" class="btn btn-primary btn-sm {% if posted.number == pg %} active {% endif %}">{{ pg }}</a>
+                          {% endfor %}
+                      </div>
+                      {% endif %}
+                  </div>
+                  <br>
+              </div>
+              
+            
+            
+               
+                <!-- Second Blog Post -->
+                <div class="col-lg-5 col-md-6 col-sm-12 blog_cols position-relative mb-4">
+                  <h5>Popular Post {{username}}</h5>
+                  {% for i in posted %} 
+                  <div class="popular_post">
+                    
+                    <div class="bg-images">
+                      <img src="{{ i.blog_image }}" class="blog_images"  />
+                                
+                      <div class="blog_contents">
+                        <div class="container">
+                          <div class="row d-flex align-items-center justify-content-between popular_row text-muted">
+                                      <!-- Column 1 -->
+                            <div class="col-auto">
+                              <p class="p-2"><i class="fa fa-user" aria-hidden="true"></i> {{i.author_name}}</p>
+                            </div>
+                                      <!-- Column 2 -->
+                            <div class="col-auto">
+                              <p class="p-2"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{i.updated_by}}</p>
+                            </div>
+                                      
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#" class="popular_link" style="margin-top: 10px;">{{i.post_name}}</a>         
+                  </div>
+                  {% endfor %} 
+                  <div class="newsletter p-5" style="background: rgb(249, 234, 249);">
+                    <h4 class="p-4">NEWSLETTER</h4>
+                    <div class="div-group">
+                        <input type="email" class="form-control" name="newletter" placeholder="Enter email" required>
+                        <button class="btn btn-dark suscribe_button text-center" >Suscribe</button> 
+                    </div>
+                    
+                </div>
+                </div>
+               
+                
+                <!-- Fourth Blog Post -->
+                
+                  
+            </div>
+        </div>
+      </section>
+
+      <!----------------------------------Footer --------------------------------------------->
+    <section id="footer" >
+      <footer class="footer-59391" style="background: lightgray">
+          <div class="border-bottom pb-5 mb-4">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-lg-3">
+                  <form action="#" class="subscribe mb-4 mb-lg-0">
+                    <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                    <button><span class="icon-keyboard_backspace"></span></button>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-lg-6 text-lg-center">
+                  <ul class="list-unstyled nav-links nav-left mb-4 mb-lg-0">
+                    <li><a href="#" class="listed" style="color: black;">Features</a></li>
+                    <li><a href="#" class="listed" style="color: black;">Blog</a></li>
+                    <li><a href="#" class="listed" style="color: black;">Pricing</a></li>
+                    <li><a href="#" class="listed" style="color: black;">Services</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <ul class="list-unstyled nav-links social nav-right text-lg-right">
+                    <li><a href="#"  class="listed"><span class="fa-stack">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span></a></li>
+                    <li><a href="#"  class="listed"><span class="fa-stack">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span></a></li>
+                    <li><a href="#"  class="listed"><span class="fa-stack">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                    </span></a></li>
+                    <li><a href="#"  class="listed"><span class="fa-stack">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-skype fa-stack-1x fa-inverse"></i>
+                    </span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-4 text-lg-center site-logo order-1 order-lg-2 mb-3 mb-lg-0">
+                <a href="#" class="m-0 p-0" style="text-decoration:none; color: black; font-size: 25px;
+  font-weight: bolder;">BACKPACK STORIES
+                  <p style="font-size: 16px; margin-left: 160px;">The Indian Saga..!</p>
+                </a>
+              </div>
+              <div class="col-lg-4 order-2 order-lg-1 mb-3 mb-lg-0">
+                <ul class="list-unstyled nav-links m-0 nav-left">
+                  <li><a href="#" style="color: black;">Terms</a></li>
+                  <li><a href="#" style="color: black;">About</a></li>
+                  <li><a href="#" style="color: black;">Privacy</a></li>
+                  <li><a href="#" style="color: black;">Contact</a></li>
+                </ul>
+              </div>
+              
+              <div class="col-lg-4 text-lg-right order-3 order-lg-3">
+                <p class="m-0 text-muted" style="color: black;"><small>&copy; 2019. All Rights Reserved.</small></p>
+              </div>
+            </div>
+          </div>
+  
+      </footer>
+  
+  
+  </section>
+
+      
+    
+
+    
+    
+    
+      <!-- Alertify JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+
+       <script>
+        {% for flashmsg in messages %}
+            alertify.set('notifier','position', 'top-center');
+            alertify.success('{{flashmsg}}');
+        {% endfor %}
+    </script>
+    
+
+    <!-------AOS JS----->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+      <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>

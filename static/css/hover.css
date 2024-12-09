@@ -1,0 +1,32 @@
+video {
+    max-width: 100%;
+  }
+  .card {
+    transition: transform 0.4s ease;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 1.5em;
+  }
+  .card:hover {
+    transform: scale(1.1);
+  }
+
+  .zoom {
+    transition: transform 0.4s ease;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 1.5em;
+  }
+  .zoom:hover {
+    transform: scale(1.3);
+  }
+
+  .zoomed {
+    transition: transform 0.4s ease;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 1.5em;
+  }
+  .zoomed:hover {
+    transform: scale(0.9);
+  }
